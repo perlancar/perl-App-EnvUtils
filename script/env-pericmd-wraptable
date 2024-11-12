@@ -1,0 +1,29 @@
+#!perl
+
+use strict;
+use warnings;
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
+
+$ENV{FORMAT_PRETTY_TABLE_BACKEND} ||= "Text::ANSITable";
+exec @ARGV;
+
+# ABSTRACT: Run command with FORMAT_PRETTY_TABLE_BACKEND set to Text::ANSITable
+
+=head1 SYNOPSIS
+
+ % env-pericmd-wraptable foo --pager
+
+
+=head2 DESCRIPTION
+
+This wrapper is useful for running L<Perinci::CmdLine::Lite>-based scripts that
+output text table with long text. By default the table renderer
+(L<Text::Table::Sprintf>) does not wrap long text in table cells, making long
+text harder to read. This wrapper sets C<FORMAT_PRETTY_TABLE_BACKEND> to
+C<Text::ANSITable>, which does wrap long text by default.
+
+=cut
